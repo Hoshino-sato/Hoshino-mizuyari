@@ -16,7 +16,7 @@ paths:
       description: 指定した日付から一週間分の水やり植物一覧を返却する。
       parameters:
         - name: today
-          in: path
+          in: query
           description: 当日日付
           required: true
           schema:
@@ -42,7 +42,7 @@ paths:
                     name:
                       description: 植物名
                       type: string
-                      example: 田中太郎
+                      example: にんじん
                     plantPlace:
                       description: 植物の置き場所
                       type: string
@@ -70,7 +70,6 @@ paths:
                         - id
                         - name
                         - plantPlace
-
         400:
           $ref: '#/components/responses/400BadRequest'
         500:
@@ -89,20 +88,6 @@ components:
           description: エラーメッセージ
 
   responses:
-    GetUsersResponse:
-      description: success operation
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/User'
-    GetUserResponse:
-      description: success operation
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserDetail'
     400BadRequest:
       description: Bad Request
       content:
