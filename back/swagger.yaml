@@ -1,0 +1,123 @@
+openapi: 3.0.3
+servers: 
+  - url: http://localhost:3000 
+info:
+  title: test-api
+  version: 0.0.1
+tags:
+  - name: plants
+    description: 植物
+paths:
+  /watering/list:
+    get:
+      tags:
+        - plants
+      summary: 水やり植物の一覧を返却する。
+      description: 指定した日付から一週間分の水やり植物一覧を返却する。
+      parameters:
+        - name: today
+          in: path
+          description: 当日日付
+          required: true
+          schema:
+            type: string
+            format: date
+            example: 2024-01-01
+            nullable: false
+      responses:
+        200:
+          description: 成功時
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:        
+                    id:
+                      description: 植物ID
+                      type: string
+                      example: 248c8027-b752-db4c-76c1-fb22a05e9591
+                      readOnly: true
+                    name:
+                      description: 植物名
+                      type: string
+                      example: 田中太郎
+                    plantPlace:
+                      description: 植物の置き場所
+                      type: string
+                      enum:
+                        - INDOOR
+                        - OUTDOOR
+                    waterings:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          date:
+                            description: 日付
+                            type: string
+                            format: date
+                            example: 2024-01-01
+                          isWatering:
+                            description: 水やり有無
+                            type: boolean
+                            example: false
+                            required:
+                              - date
+                              - isWatering
+                      required:
+                        - id
+                        - name
+                        - plantPlace
+
+        400:
+          $ref: '#/components/responses/400BadRequest'
+        500:
+          $ref: '#/components/responses/500InternalServerError'
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: エラーコード
+        message:
+          type: string
+          description: エラーメッセージ
+
+  responses:
+    GetUsersResponse:
+      description: success operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/User'
+    GetUserResponse:
+      description: success operation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserDetail'
+    400BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: ""
+            message: zzzzは必須です。
+    500InternalServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: ""
+            message: システムエラーが発生しました。
