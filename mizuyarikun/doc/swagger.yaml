@@ -74,7 +74,71 @@ paths:
           $ref: '#/components/responses/400BadRequest'
         500:
           $ref: '#/components/responses/500InternalServerError'
-
+  /delete/list:
+    put:
+      tags:
+        - plants
+      summary: 削除対象の植物のIDを送信する。
+      parameters:
+        - name: deleteplant
+          in: query #クエリパラメータ
+          description: 削除対象の植物名
+          required: true  #必須
+          schema:
+            type:  integer #データ型 数値
+            format: int64 #とりあえず
+            example: 48c8027-b752-db4c-76c1-fb22a05e9591  #植物IDの例
+            nullable: false
+      responses:
+        200:
+          description: 成功時
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:        
+                    id:
+                      description: 植物ID
+                      type: string
+                      example: 248c8027-b752-db4c-76c1-fb22a05e9591
+                      readOnly: true
+                    name:
+                      description: 植物名
+                      type: string
+                      example: にんじん
+                    plantPlace:
+                      description: 植物の置き場所
+                      type: string
+                      enum:
+                        - INDOOR
+                        - OUTDOOR
+                    waterings:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          date:
+                            description: 日付
+                            type: string
+                            format: date
+                            example: 2024-01-01
+                          isWatering:
+                            description: 水やり有無
+                            type: boolean
+                            example: false
+                            required:
+                              - date
+                              - isWatering
+                      required:
+                        - id
+                        - name
+                        - plantPlace
+        400:
+          $ref: '#/components/responses/400BadRequest'
+        500:
+          $ref: '#/components/responses/500InternalServerError'
 components:
   schemas:
     Error:
