@@ -17,7 +17,7 @@ import jakarta.persistence.Id;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class WtHistories {
+public class WateringHistories {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
