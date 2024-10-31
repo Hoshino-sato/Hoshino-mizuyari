@@ -1,8 +1,8 @@
-create table IF not exists `m_places`
+create table IF not exists `watering_histories`
 (
- `id`               INT(2) AUTO_INCREMENT,
- `place_name`       VARCHAR(20) NOT NULL,
- `description`      VARCHAR(255) NOT NULL,
+ `id`               BINARY(16) NOT NULL DEFAULT(UUID_TO_BIN(UUID(),1)),
+ `plant_id`         VARCHAR(20) NOT NULL,
+ `watering_date`    Datetime NOT NULL,
  `created_at`       Datetime DEFAULT CURRENT_TIMESTAMP,
  `updated_at`       Datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
