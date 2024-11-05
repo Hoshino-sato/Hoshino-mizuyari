@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("watering/list")
-public class PlantsController {
+public class WateringController {
 
     @Autowired
     private PlantsService plantsService;
@@ -22,11 +22,11 @@ public class PlantsController {
         return plantsService.getAllPlants();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Plants> getPlantById(@PathVariable Long id) {
-        return plantsService.getPlantById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
+    // @GetMapping("/{id}")
+    // public ResponseEntity<Plants> getPlantById(@PathVariable Long id) {
+    //     return plantsService.getPlantById(id)
+    //             .map(ResponseEntity::ok)
+    //             .orElse(ResponseEntity.notFound().build());
+    // }
 
 }
