@@ -27,25 +27,4 @@ public class Plants {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-//PlantsとWateringhistoriesに紐づけ
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "place_id", insertable = false, updatable = false)
-    private Places places;
-
-    // @OneToMany
-    // private List<WateringHistories> wateringHistories = new ArrayList<>();
-
-//現在時刻を設定
-    @PrePersist
-    public void prePersist() {
-        if (createdAt == null) {
-            createdAt = LocalDateTime.now();
-        }
-        updatedAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 }

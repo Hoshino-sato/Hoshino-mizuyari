@@ -1,5 +1,6 @@
 package com.mizuyarikun.mizuyarikun.controller;
 
+import com.mizuyarikun.mizuyarikun.entity.PlantPlace;
 import com.mizuyarikun.mizuyarikun.entity.Plants;
 import com.mizuyarikun.mizuyarikun.service.PlantsService;
 
@@ -17,7 +18,7 @@ public class WateringController {
     private PlantsService plantsService;
 
     @GetMapping
-    public List<Plants> getAllPlants() {
+    public List<PlantPlace> getAllPlants() {
 
         return plantsService.getAllPlants();
     }

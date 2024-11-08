@@ -1,5 +1,6 @@
 package com.mizuyarikun.mizuyarikun.repository;
 
+import com.mizuyarikun.mizuyarikun.entity.PlantPlace;
 import com.mizuyarikun.mizuyarikun.entity.Plants;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PlantsRepository extends JpaRepository<Plants, byte[]> {
 
-    @Query("SELECT p FROM Plant p LEFT JOIN p.place pl WHERE p.place.id = pl.id")
-    List<Plants> findAllTest();
+    @Query(value = "SELECT a.id,a.name, a.place_id, b.place_name, b.description, a.created_at, a.updated_at FROM plants AS a LEFT JOIN places AS b ON a.place_id = b.id", nativeQuery = true)
+    List<PlantPlace> findAllTest();
 
 }
