@@ -29,23 +29,22 @@ public class PlantScheduleDto {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public static PlantScheduleDto of(PlantPlace plantPlace) {
 
+    public static PlantScheduleDto of(PlantPlace plantPlace) {
         
         PlantScheduleDto plantScheduleDto = new PlantScheduleDto();
-        @Getter@Setter
-        plantScheduleDto.id(plantPlace.id);
-        plantScheduleDto.name(plantPlace.name);
-        plantScheduleDto.frequency(plantPlace.getFrequency);
-        plantScheduleDto.placeId(plantPlace.placeId);
-        plantScheduleDto.placeName(plantPlace.placeName);
-        plantScheduleDto.descreption(plantPlace.descreption);
-        plantScheduleDto.watering_date(plantPlace.watering_date);
-        plantScheduleDto.createdAt(plantPlace.createdAt);
-        plantScheduleDto.updatedAt(plantPlace.updatedAt);
-
-        private LocalDateTime[] wateringSchedule;
-
-    }
         
+        plantScheduleDto.setId(plantPlace.getId());
+        plantScheduleDto.setName(plantPlace.getName());
+        plantScheduleDto.setFrequency(plantPlace.getFrequency());
+        plantScheduleDto.setPlaceId(plantPlace.getPlaceId());
+        plantScheduleDto.setPlaceName(plantPlace.getPlaceName());
+        plantScheduleDto.setDescription(plantPlace.getDescription());
+        plantScheduleDto.setWatering_date(plantPlace.getWatering_date());
+        plantScheduleDto.setCreatedAt(plantPlace.getCreatedAt());
+        plantScheduleDto.setUpdatedAt(plantPlace.getUpdatedAt());
+
+
+        return plantScheduleDto;
+    }
 }
