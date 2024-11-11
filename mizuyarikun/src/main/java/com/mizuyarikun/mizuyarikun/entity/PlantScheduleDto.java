@@ -19,26 +19,33 @@ import jakarta.persistence.Id;
 @AllArgsConstructor
 public class PlantScheduleDto {
 
+    private byte[] id;
+    private String name;
+    private int frequency;
+    private int placeId;
+    private String placeName;
+    private String description;
+    private LocalDateTime watering_date;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
     public static PlantScheduleDto of(PlantPlace plantPlace) {
 
+        
         PlantScheduleDto plantScheduleDto = new PlantScheduleDto();
-
+        @Getter@Setter
         plantScheduleDto.id(plantPlace.id);
         plantScheduleDto.name(plantPlace.name);
-        plantScheduleDto.frequency(plantPlace.getFrequency());
-                plantScheduleDto.placeId(plantPlace.placeId);
-                plantScheduleDto.placeName(plantPlace.placeName);
-                plantScheduleDto.descreption(plantPlace.descreption);
-                plantScheduleDto.watering_date(plantPlace.watering_date);
-                plantScheduleDto.createdAt(plantPlace.createdAt);
-                plantScheduleDto.updatedAt(plantPlace.updatedAt);
+        plantScheduleDto.frequency(plantPlace.getFrequency);
+        plantScheduleDto.placeId(plantPlace.placeId);
+        plantScheduleDto.placeName(plantPlace.placeName);
+        plantScheduleDto.descreption(plantPlace.descreption);
+        plantScheduleDto.watering_date(plantPlace.watering_date);
+        plantScheduleDto.createdAt(plantPlace.createdAt);
+        plantScheduleDto.updatedAt(plantPlace.updatedAt);
+
+        private LocalDateTime[] wateringSchedule;
+
+    }
         
-                private LocalDateTime[] wateringSchedule;
-        
-            }
-        
-            private void frequency(int frequency) {
-                // TODO Auto-generated method stub
-                throw new UnsupportedOperationException("Unimplemented method 'frequency'");
-            }
 }
