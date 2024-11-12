@@ -1,4 +1,4 @@
-package com.mizuyarikun.mizuyarikun.entity;
+package com.mizuyarikun.mizuyarikun.service;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +12,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
+import com.mizuyarikun.mizuyarikun.entity.PlantPlace;
+
 @Getter
 @Setter
 @NoArgsConstructor

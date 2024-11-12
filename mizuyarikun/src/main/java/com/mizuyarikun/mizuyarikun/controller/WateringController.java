@@ -1,7 +1,7 @@
 package com.mizuyarikun.mizuyarikun.controller;
 
 import com.mizuyarikun.mizuyarikun.entity.PlantPlace;
-import com.mizuyarikun.mizuyarikun.entity.PlantScheduleDto;
+import com.mizuyarikun.mizuyarikun.entity.PlantScheduleDtoo;
 import com.mizuyarikun.mizuyarikun.entity.Plants;
 import com.mizuyarikun.mizuyarikun.service.PlantsService;
 
