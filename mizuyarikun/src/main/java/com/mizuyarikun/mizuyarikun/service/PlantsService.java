@@ -21,10 +21,9 @@ public class PlantsService {
     
     public List<PlantPlace> getAllPlants() {
       
-      System.out.println("banabanana");
-      String testArr[] = plantPlaceRepository.findAllTest().toArray();
-      System.out.println(Arrays.toString(testArr));
-      System.out.println("banabanana");
+      List<PlantPlace> plantPlace = plantPlaceRepository.findAllTest();
+
+      String testText[] = plantPlace.getWatering_date().toArray();//いったん保留
 
       //  CreateSchedule.manageCreateSchedule();
 
