@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Arrays;
 
 @Service
 public class PlantsService {
@@ -19,8 +20,13 @@ public class PlantsService {
     private  PlantPlaceRepository plantPlaceRepository;
     
     public List<PlantPlace> getAllPlants() {
+      
+      System.out.println("banabanana");
+      String testArr[] = plantPlaceRepository.findAllTest().toArray();
+      System.out.println(Arrays.toString(testArr));
+      System.out.println("banabanana");
 
-        CreateSchedule CreateSchedule = new CreateSchedule();
+      //  CreateSchedule.manageCreateSchedule();
 
         return plantPlaceRepository.findAllTest();
     }

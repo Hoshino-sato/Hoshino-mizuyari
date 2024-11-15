@@ -22,8 +22,8 @@ public class CreateSchedule {
     //   (2)(1)以外の場合、次の水やり予定は(最終潅水日+水やり頻度)で求める。
     // 3.一週間分の水やり予定を求める。
 
-    //PlantPlace plantPlace = new PlantPlace();
-
+    PlantPlace plantPlace = new PlantPlace();
+    
     private byte[] id;
     private String name;
     private int frequency;
@@ -34,17 +34,20 @@ public class CreateSchedule {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    private LocalDateTime startWatering;
 
-
-    public static void manageCreateSchedule(){
-
+    
+    public static LocalDateTime manageCreateSchedule(PlantPlace plantPlace){
         
+        LocalDateTime watering_date = plantPlace.getWatering_date();
 
-        PlantScheduleDto.checkLastWatering(PlantPlace.Watering_date); //ここ
+        CreateSchedule.checkLastWatering(watering_date);
+
+        return null;
     }
 
     
-    public static LocalDate checkLastWatering(LocalDate watering_date) {
+    public static LocalDate checkLastWatering(LocalDateTime watering_date) {
            
 
         

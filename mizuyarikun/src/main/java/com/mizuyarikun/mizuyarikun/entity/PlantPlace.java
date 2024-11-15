@@ -17,11 +17,12 @@ import jakarta.persistence.Id;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PlantPlace {
+public  class PlantPlace {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private byte[] id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    
+    byte[] id;
 
     private String name;
     private int frequency;
