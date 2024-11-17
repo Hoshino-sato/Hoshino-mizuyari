@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 
 @Service
@@ -23,9 +24,7 @@ public class PlantsService {
       
       List<PlantPlace> plantPlace = plantPlaceRepository.findAllTest();
 
-      String testText[] = plantPlace.getWatering_date().toArray();//いったん保留
-
-      //  CreateSchedule.manageCreateSchedule();
+      CreateSchedule.manageCreateSchedule(plantPlace);
 
         return plantPlaceRepository.findAllTest();
     }

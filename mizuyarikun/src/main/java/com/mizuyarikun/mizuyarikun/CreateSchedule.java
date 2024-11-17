@@ -1,6 +1,7 @@
 package com.mizuyarikun.mizuyarikun;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,9 +38,9 @@ public class CreateSchedule {
     private LocalDateTime startWatering;
 
     
-    public static LocalDateTime manageCreateSchedule(PlantPlace plantPlace){
+    public static LocalDateTime manageCreateSchedule(List<PlantPlace> plantPlace){
         
-        LocalDateTime watering_date = plantPlace.getWatering_date();
+        LocalDateTime[] watering_date = ((List<PlantPlace>) plantPlace).getWateringDate();
 
         CreateSchedule.checkLastWatering(watering_date);
 
